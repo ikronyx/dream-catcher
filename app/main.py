@@ -45,14 +45,6 @@ st.markdown("""
     </form>
 """, unsafe_allow_html=True)
 
-# Detect if the button was clicked
-if st.session_state.get("_button_clicked", False):
-    story = generate_description(collective_input)
-    st.text(story)
 
-# Detect button click via workaround (hidden form update)
-if "form_submitted" not in st.session_state:
-    st.session_state["form_submitted"] = False
-
-if st.query_params():  # crude detection of refresh after submit
-    st.session_state["_button_clicked"] = True
+# story = generate_description(collective_input)
+# st.text(story)
