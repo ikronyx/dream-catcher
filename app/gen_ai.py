@@ -1,9 +1,9 @@
 import google.generativeai as genai
 import os
 
-api_key_value = open("api_key.txt", 'r', encoding='utf-8').read().strip()
+# api_key_value = open("api_key.txt", 'r', encoding='utf-8').read().strip()
 
-genai.configure(api_key=api_key_value)
+genai.configure(api_key="AIzaSyBfKkPK9DrZYnNn37qiT9P7KAajevp_BQo")
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 def generate_description(collective_input):
