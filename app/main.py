@@ -21,28 +21,15 @@ want_to_be = "I want to be like " + want_to_be
 
 collective_input = future_goals + desires
 
-st.markdown("""
-    <style>
-    .red-button {
-        display: block;
-        width: 100%;
-        padding: 0.75em;
-        background-color: #e63946;
-        color: white;
-        font-size: 1.1em;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        text-align: center;
-        margin-top: 1em;
-    }
-    .red-button:hover {
-        background-color: #d62828;
-    }
-    </style>
-    <button class="red-button" type="submit">Take Me There</button>
-""", unsafe_allow_html=True)
+if 'clicked' not in st.session_state:
+    st.session_state.clicked = False
 
+def click_button():
+    st.session_state.clicked = True
 
-# story = generate_description(collective_input)
-# st.text(story)
+st.button('Take Me There', on_click=click_button, use_container_width=True, type="primary")
+
+if st.session_state.clicked:
+    if future_goals and desires:
+        story = generate_description(collective_input)
+        st.text(story)
