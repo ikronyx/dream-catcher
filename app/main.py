@@ -8,14 +8,10 @@ st.set_page_config(page_title="Dream Catcher", layout="wide")
 st.title("Imagine a day in your future")
 
 future_goals = st.text_input("What are future goals?", placeholder="e.g., Start a design studio in Bali, run a marathon, publish my novel")
-with st.expander("See Examples"):
-    st.write('''
-        The chart above shows some numbers I picked for you.
-        I rolled actual dice for these, so they're *guaranteed* to
-        be random.
-    ''')
+with st.expander("See More Examples"):
+    list_1 = ["Build a tech startup that helps mental health", "Open a bakery that serves only plant-based desserts", "Become a yoga instructor and teach worldwide"]
+    st.write(list_1)
 desires = st.text_input("What are your desires?")
-st.info('This is a purely informational message', icon="ℹ️")
 look_like = st.text_input("How do want your life to look like?")
 to_have = st.text_input("What you want to have?")
 want_to_be = st.text_input("How do you want to be?")
