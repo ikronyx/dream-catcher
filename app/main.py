@@ -19,7 +19,7 @@ desires = "My desires are: " + desires
 collective_input = future_goals + desires
 
 if future_goals and desires:
-    st.text(collective_input)
+    st.text(generate_description(collective_input))
 
 # if user_input:
 #     with st.spinner("Processing..."):
