@@ -1,6 +1,6 @@
 import streamlit as st
-from app.text_utils import split_text_into_5_parts, summarize_chunk, split_paragraph_by_period
-from app.image_utils import get_pollinations_url
+from text_utils import split_text_into_5_parts, summarize_chunk, split_paragraph_by_period
+from image_utils import get_pollinations_url
 
 st.set_page_config(page_title="Text-to-Image Summarizer", layout="wide")
 
