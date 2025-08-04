@@ -40,9 +40,7 @@ st.markdown("""
         background-color: #d62828;
     }
     </style>
-    <form action="" method="post">
-        <button class="red-button" type="submit">Take Me There</button>
-    </form>
+    <button class="red-button" type="submit">Take Me There</button>
 """, unsafe_allow_html=True)
 
 
