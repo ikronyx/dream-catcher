@@ -1,7 +1,7 @@
 import google.generativeai as genai
 import os
 
-api_key_value = open("api_key.txt", 'r', encoding='utf-8').read().strip()
+api_key_value = open("../key/api_key.txt", 'r', encoding='utf-8').read().strip()
 
 genai.configure(api_key=api_key_value)
 model = genai.GenerativeModel("gemini-1.5-flash")
