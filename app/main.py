@@ -3,23 +3,28 @@ from text_utils import split_text_into_5_parts, summarize_chunk, split_paragraph
 from image_utils import get_pollinations_url
 from gen_ai import generate_description
 
-st.set_page_config(page_title="Text-to-Image Summarizer", layout="wide")
+st.set_page_config(page_title="Dream Catcher", layout="wide")
 
-st.title("📚 Text-to-Image Summarizer & Generator")
-st.markdown("Paste a long text description below. We'll split, summarize, and generate an image for each part.")
-
-user_input = st.text_area("Your Input Text", height=300)
+st.title("Imagine a day in your future")
 
 future_goals = st.text_input("What are future goals?")
 desires = st.text_input("What are your desires?")
+look_like = st.text_input("How do want your life to look like?")
+to_have = st.text_input("What you want to have?")
+want_to_be = st.text_input("How do you want to be?")
 
 future_goals = "My future goals are: " + future_goals
 desires = "My desires are: " + desires
+look_like = "I want my life to look like: " + look_like
+to_have = "I want to have " + to_have
+want_to_be = "I want to be like " + want_to_be
 
 collective_input = future_goals + desires
 
-if future_goals and desires:
-    st.text(generate_description(collective_input))
+if st.button("Take Me There"):
+    if future_goals and desires:
+        story = generate_description(collective_input)
+        st.text(story)
 
 # if user_input:
 #     with st.spinner("Processing..."):
