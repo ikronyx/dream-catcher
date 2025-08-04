@@ -15,6 +15,7 @@ with st.expander("See Examples"):
         be random.
     ''')
 desires = st.text_input("What are your desires?")
+st.info('This is a purely informational message', icon="ℹ️")
 look_like = st.text_input("How do want your life to look like?")
 to_have = st.text_input("What you want to have?")
 want_to_be = st.text_input("How do you want to be?")
