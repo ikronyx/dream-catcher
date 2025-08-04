@@ -41,11 +41,12 @@ if st.session_state.clicked:
         # st.text(story)
 
         @st.dialog("Cast your vote")
-        def vote(item):
+        def vote():
             story = generate_description(collective_input)
             st.write(f"A day in your life!")
             st.text(story)
 
+        vote()
         # if "vote" not in st.session_state:
         #     st.write("Vote for your favorite")
         #     if st.button("A"):
