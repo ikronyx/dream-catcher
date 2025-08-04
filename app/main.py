@@ -54,5 +54,5 @@ if st.session_state.get("_button_clicked", False):
 if "form_submitted" not in st.session_state:
     st.session_state["form_submitted"] = False
 
-if st.experimental_get_query_params():  # crude detection of refresh after submit
+if st.query_params():  # crude detection of refresh after submit
     st.session_state["_button_clicked"] = True
