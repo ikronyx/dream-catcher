@@ -21,18 +21,38 @@ want_to_be = "I want to be like " + want_to_be
 
 collective_input = future_goals + desires
 
-if st.button("Take Me There"):
-    if future_goals and desires:
-        story = generate_description(collective_input)
-        st.text(story)
+st.markdown("""
+    <style>
+    .red-button {
+        display: block;
+        width: 100%;
+        padding: 0.75em;
+        background-color: #e63946;
+        color: white;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 1em;
+    }
+    .red-button:hover {
+        background-color: #d62828;
+    }
+    </style>
+    <form action="" method="post">
+        <button class="red-button" type="submit">Take Me There</button>
+    </form>
+""", unsafe_allow_html=True)
 
-# if user_input:
-#     with st.spinner("Processing..."):
-#         parts = split_paragraph_by_period(user_input)
-#         # summaries = [summarize_chunk(p) for p in parts]
+# Detect if the button was clicked
+if st.session_state.get("_button_clicked", False):
+    story = generate_description(collective_input)
+    st.text(story)
 
-#         st.header("🖼️ Results")
-#         for i, summary in enumerate(parts):
-#             image_url = get_pollinations_url(summary)
-#             st.subheader(f"Part {i+1}")
-#             st.image(image_url, caption=summary)
+# Detect button click via workaround (hidden form update)
+if "form_submitted" not in st.session_state:
+    st.session_state["form_submitted"] = False
+
+if st.experimental_get_query_params():  # crude detection of refresh after submit
+    st.session_state["_button_clicked"] = True
